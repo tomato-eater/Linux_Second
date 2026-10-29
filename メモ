@@ -1,0 +1,62 @@
+    ドッカー　起動
+docker-compose up -d ・ docker-compose up -d --build
+
+    ドッカー 停止
+docker-compose down
+
+    ドッカー 無上の削除
+docker stop $(docker ps -q)
+docker rm $(docker ps -q -a)
+docker rmi $(docker images -q)
+docker volume rm $(docker volume ls -qf dangling=true)
+
+    コンテナ内に入る
+docker-compose exec AAA(.ymlのコンテナ名) bash
+
+    mysqlに入ろうとしている
+mysql -uroot -p
+
+    スキーマ・テーブルの確認
+show databases;
+show tables;
+
+    スキーマ削除・作成
+DROP DATABASE IF EXISTS AAA(スキーマ名);
+CREATE DATABASE IF NOT EXISTS AAA(スキーマ名);
+
+    テーブル作成・削除
+DROP TABLE IF EXISTS AAA(テーブル名);
+CREATE TABLE IF NOT EXISTS AAA(テーブル名) (このかっこの中に入れるデータの型情報とかを記述);
+
+    テーブルデータの確認
+    テーブルの選択
+select * from AAA(テーブル名) 
+    データの絞り込み
+where AAA(型) = BBB(値)       例：where id = 1;  (これでテーブル内の id が 1 のデータだけを表示する)
+    データの並び替え
+order by AAA(型) ASC(昇順) or DESC(降順)  例：order by id DESC; (これでテーブル内のデータを id の降順で表示する)
+    データの条件表示
+limit AAA(表示件数)  例：limit 10; (これでテーブル内のデータを10件だけ表示する) 
+
+
+    vim
+    コマンドリセット
+ESC
+    最後の行に移動
+Shift+G
+    入力モード
+I
+    保存せず閉じる
+:q!
+    保存して閉じる
+:wq
+    別名で保存
+:w AAA(名前)
+    調べたい文字が含まれて*いる*行数の数を調べる
+:%s/AAA(調べたい文字)//gn          
+    調べたい文字が含まれて*いない*行数の数を調べる
+:%s/\v^(.*AAA(除外したい文字).*)@!/n    
+
+    cat
+vimの軽い版(覗くだけで編集等はできない)
+
