@@ -28,6 +28,9 @@ CREATE DATABASE IF NOT EXISTS AAA(スキーマ名);
 DROP TABLE IF EXISTS AAA(テーブル名);
 CREATE TABLE IF NOT EXISTS AAA(テーブル名) (このかっこの中に入れるデータの型情報とかを記述);
 
+    テーブルにデータを挿入
+INSERT INTO AAA(テーブル名) (AAA(型), BBB(型)) VALUES (AAA(値), BBB(値));  例：INSERT INTO users (id, name, email) VALUES (1, 'John Doe', 'john.doe@example.com');
+
     テーブルデータの確認
     テーブルの選択
 select * from AAA(テーブル名) 
